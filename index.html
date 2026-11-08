@@ -4,185 +4,198 @@
 <head>
     <title>FLL Color Sensor Dashboard</title>
 
-    <style>
+   <style>
 
-       *{
-    margin:0;
-    padding:0;
-   *box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-  * font-family:Arial, sans-serif;
-
- *  background:
-    linear-gradient(*        135deg,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        135deg,
         #0f172a,
- *      #0f3b57,
-*       #0f172a
+        #0b4f6c,
+        #0f172a
     );
-
-    color:w*ite;
-
-*   min-height:100vh;
+    color: white;
+    min-height: 100vh;
 }
 
-.header{
+.header {
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
 
-*   margin:20px;
+    background: rgba(255,255,255,0.08);
 
-    padding:20px;*
-*   border-radius:25px;
+    border: 2px solid rgba(255,255,255,0.15);
 
-    backgr*und:rgba(255,255*255,.08);
+    border-radius: 25px;
 
-    border:2px solid rg*a(255,255,255,.15);
-
-    text-alig*:center;
-
-    box-shadow:* 10px 30px rgba(0,0,0,.*);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.header h1{
-
-    font*size:3rem;
-
-    letter-spacing:3*x;
+.header h1 {
+    font-size: 3rem;
+    letter-spacing: 3px;
 }
 
-.header p{
-
-    margin-top*10px;
-
-    color:#d1d5*b;
+.header p {
+    margin-top: 8px;
+    color: #d1d5db;
 }
 
-.container{
-
-    display:fle*;
-
-    gap:20px;
-
-*   padding:20px;
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
 }
 
-.left-panel{
+.left-panel {
 
-*  *width:45%;
+    width: 42%;
 
-    border-radius:*0px;
+    background: rgba(255,255,255,0.08);
 
-    background:rgba(255,255,*55,.08*;
+    border: 2px solid rgba(255,255,255,0.15);
 
-    border:2px solid rgba(255,2*5,255,.15);
+    border-radius: 30px;
 
-    padding:20px;
+    padding: 20px;
+
+    backdrop-filter: blur(12px);
 }
 
-*right-panel{
+.right-panel {
 
-    width:55%;
+    width: 58%;
 
-    *order-radius:30*x;
+    border-radius: 30px;
 
-    padding:30px;
+    border: 3px solid white;
 
-    border:*px solid white;
+    display: flex;
 
-    display:flex;*
-    flex-direction:column;
+    flex-direction: column;
 
-   *justify-content:center;
+    justify-content: center;
 
-    align*items:center;
+    align-items: center;
 
-*   min-height:650px;
+    min-height: 700px;
 
-    transiti*n:.5s;
+    transition: all 0.5s ease;
 }
 
-.logo{
+.logo {
 
-    width:220px;*
-    display:block;
+    width: 220px;
 
-    margin:au*o;
+    display: block;
+
+    margin: auto;
+
+    filter: drop-shadow(0 0 20px rgba(0,255,255,0.4));
 }
 
-.team-photo{
+.team-photo {
 
-    width:100%*
+    width: 100%;
 
-    margin-top:20px;
+    margin-top: 20px;
 
-    border*radius*20px;
+    border-radius: 20px;
 
-    border:4*x solid white;
+    border: 4px solid white;
 
-    box-shadow:0 1*px 25px*rgba(0,0,0,.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-.project-card{
-*    margin-top:20px;
+.project-card {
 
-    backgrou*d*rgba(0,0,0,.2);
+    margin-top: 20px;
 
-    padding:20*x;
+    background: rgba(0,0,0,0.25);
 
-    border-radius:20px;
+    border: 1px solid rgba(255,255,255,0.15);
 
-    b*rder:1px solid*rgba(255,255,255,.15);
+    border-radius: 20px;
+
+    padding: 20px;
+
+    line-height: 1.7;
 }
 
-#colorCi*cle{
+.project-card h2 {
 
-    width:220px;
-
-    height*220px;
-
-    border-radius:50%;
-
-  * border:8px solid white;
-
-    back*round:white;
-
-    margin-bottom:30*x;
-
-   *box-shadow:0 0 60px rgba(255,255,*55,.5);
+    margin-bottom: 10px;
 }
 
-#colorName{
+#colorCircle {
 
-    font-s*ze:8rem;
+    width: 220px;
 
-    font-weight:900;
+    height: 220px;
 
-  * letter-spacing:4px;
+    border-radius: 50%;
 
-*   text-shadow:0 0 20px rgba(255,2*5*255,.4);
+    border: 8px solid white;
+
+    background: white;
+
+    box-shadow: 0 0 50px rgba(255,255,255,0.5);
+
+    margin-bottom: 30px;
 }
 
-#timestamp{
+#colorName {
 
-    margi*-top:30px;
+    font-size: 7rem;
 
-    font-size:2rem;
-}
-**status{
+    font-weight: 900;
 
-    margin-top:20px;
+    letter-spacing: 4px;
 
-   *padding:15px 25px;
+    text-transform: uppercase;
 
-    border-rad*us:50px;
-
-    background:#10b981;
-*    color:white;
-
-    font-weight:*old;
+    text-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
-    </style>
+#timestamp {
+
+    margin-top: 25px;
+
+    font-size: 2rem;
+}
+
+.status {
+
+    margin-top: 25px;
+
+    background: #10b981;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    font-weight: bold;
+
+    font-size: 1.2rem;
+}
+
+.footer {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: rgba(255,255,255,0.8);
+}
+
+</style>
 
     <script type="module">
 
@@ -237,183 +250,64 @@ body{
 
 </head>
 
-<body>
+    <body>
 
-*{
-    margin:0;
-    padding:0;
-   *box-sizing:border-box;
-}
+<div class="header">
+    <h1>🐢 ECO ENGINEERS</h1>
+    <p>Live Color Sensor Dashboard</p>
+</div>
 
-body{
-  * font-family:Arial, sans-serif;
+<div class="container">
 
- *  background:
-    linear-gradient(*        135deg,
-        #0f172a,
- *      #0f3b57,
-*       #0f172a
-    );
+    <div class="left-panel">
 
-    color:w*ite;
+        <img src="fll_logo.jpeg" class="logo">
 
-*   min-height:100vh;
-}
+        <img src="team-Pic.jpeg" class="team-photo">
 
-.header{
+        <div class="project-card">
 
-*   margin:20px;
+            <h2>Project Overview</h2>
 
-    padding:20px;*
-*   border-radius:25px;
+            <p>
+                LEGO SPIKE Essential Hub detects colors.
+            </p>
 
-    backgr*und:rgba(255,255*255,.08);
+            <p>
+                OCR extracts the sensor output from the SPIKE console.
+            </p>
 
-    border:2px solid rg*a(255,255,255,.15);
+            <p>
+                Firebase stores the results in real time.
+            </p>
 
-    text-alig*:center;
+            <p>
+                This website updates instantly whenever a new color is detected.
+            </p>
 
-    box-shadow:* 10px 30px rgba(0,0,0,.*);
-}
+        </div>
 
-.header h1{
+    </div>
 
-    font*size:3rem;
+    <div class="right-panel" id="liveColor">
 
-    letter-spacing:3*x;
-}
+        <div id="colorCircle"></div>
 
-.header p{
+        <div id="colorName">
+            WAITING
+        </div>
 
-    margin-top*10px;
+        <div id="timestamp">
+            --
+        </div>
 
-    color:#d1d5*b;
-}
+        <div class="status">
+            LIVE SENSOR ONLINE
+        </div>
 
-.container{
+    </div>
 
-    display:fle*;
-
-    gap:20px;
-
-*   padding:20px;
-}
-
-.left-panel{
-
-*  *width:45%;
-
-    border-radius:*0px;
-
-    background:rgba(255,255,*55,.08*;
-
-    border:2px solid rgba(255,2*5,255,.15);
-
-    padding:20px;
-}
-
-*right-panel{
-
-    width:55%;
-
-    *order-radius:30*x;
-
-    padding:30px;
-
-    border:*px solid white;
-
-    display:flex;*
-    flex-direction:column;
-
-   *justify-content:center;
-
-    align*items:center;
-
-*   min-height:650px;
-
-    transiti*n:.5s;
-}
-
-.logo{
-
-    width:220px;*
-    display:block;
-
-    margin:au*o;
-}
-
-.team-photo{
-
-    width:100%*
-
-    margin-top:20px;
-
-    border*radius*20px;
-
-    border:4*x solid white;
-
-    box-shadow:0 1*px 25px*rgba(0,0,0,.3);
-}
-
-.project-card{
-*    margin-top:20px;
-
-    backgrou*d*rgba(0,0,0,.2);
-
-    padding:20*x;
-
-    border-radius:20px;
-
-    b*rder:1px solid*rgba(255,255,255,.15);
-}
-
-#colorCi*cle{
-
-    width:220px;
-
-    height*220px;
-
-    border-radius:50%;
-
-  * border:8px solid white;
-
-    back*round:white;
-
-    margin-bottom:30*x;
-
-   *box-shadow:0 0 60px rgba(255,255,*55,.5);
-}
-
-#colorName{
-
-    font-s*ze:8rem;
-
-    font-weight:900;
-
-  * letter-spacing:4px;
-
-*   text-shadow:0 0 20px rgba(255,2*5*255,.4);
-}
-
-#timestamp{
-
-    margi*-top:30px;
-
-    font-size:2rem;
-}
-**status{
-
-    margin-top:20px;
-
-   *padding:15px 25px;
-
-    border-rad*us:50px;
-
-    background:#10b981;
-*    color:white;
-
-    font-weight:*old;
-}
+</div>
 
 </body>
 
