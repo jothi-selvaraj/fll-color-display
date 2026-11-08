@@ -324,7 +324,57 @@ pointer-events: none;
 
             if(!data) return;
 
-            let color = (data.color || "WHITE");
+            let color = (data.color || "UNKNOWN");
+
+const image =
+    document.getElementById("bacteriaImage");
+
+const message =
+    document.getElementById("statusMessage");
+
+if (
+    color === "RED" ||
+    color === "MAGENTA" ||
+    color === "PINK"
+) {
+
+    image.src = "cyanobacteria.png";
+
+    image.style.display = "block";
+
+    message.style.display = "block";
+
+    message.innerText =
+        "⚠️ CYANOBACTERIA DETECTED";
+
+    message.style.background =
+        "#dc2626";
+
+    document.getElementById("liveColor")
+        .style.background =
+        "linear-gradient(135deg,#ef4444,#7f1d1d)";
+}
+else {
+
+    image.style.display = "none";
+
+    message.style.display = "block";
+
+    message.innerText =
+        "✅ NO BACTERIA DETECTED";
+
+    message.style.background =
+        "#059669";
+
+    document.getElementById("liveColor")
+        .style.background =
+        "linear-gradient(135deg,#0ea5e9,#164e63)";
+}
+
+document.getElementById("timestamp")
+    .innerText =
+    "Last Updated: " +
+    (data.timestamp || "--");
 
             document.getElementById("colorName")
                 .innerText = color;
@@ -403,11 +453,25 @@ can work together to protect aquatic ecosystems.
 
     <div class="right-panel" id="liveColor">
 
-        <div id="colorCircle"></div>
+        <img id="bacteriaImage"
+     src="cyanobacteria.png"
+     style="
+        width:350px;
+        border-radius:20px;
+        border:5px solid white;
+        display:none;
+     ">
 
-        <div id="colorName">
-            WAITING
-        </div>
+<div id="statusMessage"
+     style="
+        margin-top:20px;
+        padding:20px;
+        border-radius:15px;
+        font-size:2rem;
+        font-weight:bold;
+        display:none;
+     ">
+</div>
 
         <div id="timestamp">
             --
