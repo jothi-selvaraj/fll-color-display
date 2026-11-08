@@ -2,545 +2,377 @@
 <html>
 
 <head>
-    <title>FLL Color Sensor Dashboard</title>
-
-   <style>
+    <title>Eco Engineers - Water Quality Dashboard</title>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.bubble {
-    position: fixed;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(2px);
-    pointer-events: none;
-}
+    <style>
 
-.b1 {
-    width: 120px;
-    height: 120px;
-    top: 12%;
-    left: 5%;
-}
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
 
-.b2 {
-    width: 70px;
-    height: 70px;
-    top: 70%;
-    left: 20%;
-}
+    body{
 
-.b3 {
-    width: 90px;
-    height: 90px;
-    top: 20%;
-    right: 10%;
-}
+        font-family:Arial,Helvetica,sans-serif;
 
-.b4 {
-    width: 150px;
-    height: 150px;
-    bottom: 10%;
-    right: 20%;
-}
+        background:
+        radial-gradient(circle at top,
+            #7dd3fc 0%,
+            #38bdf8 25%,
+            #0891b2 60%,
+            #164e63 100%);
 
-       #statusMessage {
+        min-height:100vh;
 
-    display:none;
+        color:white;
+    }
 
-    margin-top:25px;
+    .header{
 
-    padding:20px 40px;
+        margin:20px;
 
-    border-radius:20px;
+        padding:20px;
 
-    font-size:2rem;
+        text-align:center;
 
-    font-weight:800;
+        border-radius:25px;
 
-    text-align:center;
+        background:rgba(255,255,255,.15);
 
-    box-shadow:0 8px 20px rgba(0,0,0,.2);
-}
-       
-body {
-    font-family: Arial, Helvetica, sans-serif;
+        backdrop-filter:blur(12px);
 
-    background:
-    radial-gradient(circle at top,
-        #7dd3fc 0%,
-        #38bdf8 25%,
-        #0891b2 60%,
-        #164e63 100%);
+        box-shadow:0 10px 25px rgba(0,0,0,.2);
+    }
 
-    color: white;
+    .header h1{
 
-    min-height: 100vh;
-}
+        font-size:3rem;
+    }
 
-.header {
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
+    .header p{
 
-    background: rgba(255,255,255,0.08);
+        font-size:1.2rem;
+        margin-top:8px;
+    }
 
-    border: 2px solid rgba(255,255,255,0.15);
+    .container{
 
-    border-radius: 25px;
+        display:flex;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
+        gap:20px;
 
-.header h1 {
-    font-size: 3rem;
-    letter-spacing: 3px;
-}
+        padding:20px;
+    }
 
-.header p {
-    margin-top: 8px;
-    color: #d1d5db;
-}
+    .left-panel{
 
-.container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
+        width:42%;
 
-.left-panel {
+        background:rgba(255,255,255,.18);
 
-    width: 42%;
+        border-radius:25px;
 
-    background: rgba(255,255,255,0.18);
+        padding:20px;
 
-    border: 2px solid rgba(255,255,255,0.25);
+        backdrop-filter:blur(15px);
+    }
 
-    backdrop-filter: blur(16px);
+    .right-panel{
 
-    padding: 20px;
+        width:58%;
 
-    backdrop-filter: blur(12px);
-}
-       .left-panel::after {
+        background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #7dd3fc,
+            #0891b2
+        );
 
-    content: "";
+        border-radius:25px;
 
-    position: absolute;
+        border:3px solid white;
 
-    inset: 0;
+        min-height:750px;
 
-    background-image: url("fll_logo.jpeg");
+        display:flex;
 
-    background-repeat: no-repeat;
+        flex-direction:column;
 
-    background-position: center;
+        align-items:center;
 
-    background-size: 70%;
+        justify-content:center;
 
-    opacity: 0.04;
+        padding:30px;
+    }
 
-    pointer-events: none;
-}
+    .logo{
 
-.right-panel {
+        width:200px;
 
-        width: 58%;
+        display:block;
 
-    border-radius: 30px;
+        margin:auto;
+    }
 
-    border: 3px solid white;
+    .team-photo{
 
-    display: flex;
+        width:100%;
 
-    flex-direction: column;
+        border-radius:20px;
 
-    justify-content: center;
+        margin-top:20px;
 
-    align-items: center;
+        border:4px solid white;
+    }
 
-    min-height: 700px;
+    .project-card{
 
-    transition: all 0.5s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow:
-    0 0 40px rgba(255,255,255,0.15),
-    inset 0 0 60px rgba(255,255,255,0.05);
-}
-   .right-panel::before {
+        margin-top:20px;
 
-content: "";
+        padding:20px;
 
-position: absolute;
+        border-radius:20px;
 
-inset: 0;
+        background:rgba(0,0,0,.15);
 
-background-image: url("fll_logo.jpeg");
+        line-height:1.7;
+    }
 
-background-repeat: no-repeat;
+    .project-card h2{
 
-background-position: center;
+        margin-bottom:15px;
+    }
 
-background-size: 60%;
+    #bacteriaImage{
 
-opacity: 0.08;
+        width:450px;
 
-pointer-events: none;
-}
+        max-width:90%;
 
-#colorCircle,
-#colorName,
-#timestamp,
- {
+        border-radius:20px;
 
-    position: relative;
-    z-index: 1;
-}
+        border:6px solid white;
 
-.logo {
+        display:none;
 
-    width: 220px;
+        margin-bottom:25px;
 
-    display: block;
+        box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
+    }
 
-    margin: auto;
+    #statusMessage{
 
-    filter: drop-shadow(0 0 20px rgba(0,255,255,0.4));
-}
+        padding:20px 35px;
 
-.team-photo {
+        border-radius:20px;
 
-    width: 100%;
+        font-size:2rem;
 
-    margin-top: 20px;
+        font-weight:bold;
 
-    border-radius: 20px;
+        text-align:center;
 
-    border: 4px solid white;
+        display:none;
+    }
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
+    #sampleType{
 
-.project-card {
+        margin-top:20px;
 
-    margin-top: 20px;
+        padding:10px 20px;
 
-    background: rgba(0,0,0,0.25);
+        border-radius:25px;
 
-    border: 1px solid rgba(255,255,255,0.15);
+        background:white;
 
-    border-radius: 20px;
+        color:#0f172a;
 
-    padding: 20px;
+        font-weight:bold;
+    }
 
-    line-height: 1.7;
-}
+    #timestamp{
 
-.project-card h2 {
+        margin-top:25px;
 
-    margin-bottom: 10px;
-}
+        font-size:1.4rem;
 
-       #colorCircle {
+        color:white;
+    }
 
-    width: 240px;
-    height: 240px;
-
-    border-radius: 50%;
-
-    border: 10px solid rgba(255,255,255,0.9);
-
-    background: white;
-
-    box-shadow:
-        0 0 80px rgba(255,255,255,0.6);
-
-    margin-bottom: 30px;
-}
-
-#colorName {
-
-    font-size: 7rem;
-
-    font-weight: 900;
-
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    text-shadow: 0 0 20px rgba(255,255,255,0.4);
-}
-
-#timestamp {
-
-    margin-top: 25px;
-
-    font-size: 2rem;
-}
-
-
-.footer {
-
-    text-align: center;
-
-    margin-top: 15px;
-
-    color: rgba(255,255,255,0.8);
-}
-
-       #sampleType {
-
-    margin-top: 15px;
-
-    font-size: 24px;
-
-    font-weight: 600;
-
-    color: #0f172a;
-
-    background: rgba(255,255,255,.8);
-
-    padding: 10px 20px;
-
-    border-radius: 30px;
-}
-</style>
+    </style>
 
     <script type="module">
 
-        import { initializeApp }
-        from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 
-        import {
-            getDatabase,
-            ref,
-            onValue
+    import {
+        getDatabase,
+        ref,
+        onValue
+    } from
+    "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+
+    const firebaseConfig = {
+
+        apiKey: "YOUR_API_KEY",
+
+        authDomain: "fll-color-display.firebaseapp.com",
+
+        databaseURL:
+        "https://fll-color-display-default-rtdb.firebaseio.com",
+
+        projectId: "fll-color-display",
+
+        storageBucket:
+        "fll-color-display.firebasestorage.app",
+
+        messagingSenderId: "403048053250",
+
+        appId:
+        "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    const db = getDatabase(app);
+
+    onValue(ref(db,"sensor"),(snapshot)=>{
+
+        const data = snapshot.val();
+
+        if(!data) return;
+
+        let color =
+            (data.color || "UNKNOWN")
+            .toUpperCase()
+            .trim();
+
+        const image =
+            document.getElementById("bacteriaImage");
+
+        const message =
+            document.getElementById("statusMessage");
+
+        if(
+            color === "RED" ||
+            color === "MAGENTA" ||
+            color === "PINK"
+        ){
+
+            image.src =
+                "cyanobacteria.jpeg";
+
+            image.style.display =
+                "block";
+
+            message.style.display =
+                "block";
+
+            message.innerHTML =
+                "⚠️ CYANOBACTERIA DETECTED";
+
+            message.style.background =
+                "#dc2626";
+
+            message.style.color =
+                "white";
+
+        }else{
+
+            image.style.display =
+                "none";
+
+            message.style.display =
+                "block";
+
+            message.innerHTML =
+                "✅ NO BACTERIA DETECTED";
+
+            message.style.background =
+                "#059669";
+
+            message.style.color =
+                "white";
         }
-        from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
-        
- const firebaseConfig = {
-  apiKey: "AIzaSyDOo74IoJTMqIN3SrxCy84DQqAQQUFFv8U",
-  authDomain: "fll-color-display.firebaseapp.com",
-  databaseURL: "https://fll-color-display-default-rtdb.firebaseio.com",
-  projectId: "fll-color-display",
-  storageBucket: "fll-color-display.firebasestorage.app",
-  messagingSenderId: "403048053250",
-  appId: "1:403048053250:web:fb4f45485c7af6fb2bc51b",
-  measurementId: "G-SD05RLLECS"
-};
+        document.getElementById("timestamp")
+            .innerText =
+            "Last Updated: "
+            + (data.timestamp || "--");
 
-
-        const app = initializeApp(firebaseConfig);
-
-        const db = getDatabase(app);
-
-        onValue(ref(db,"sensor"),(snapshot)=>{
-
-            const data = snapshot.val();
-
-            if(!data) return;
-
-            let color = (data.color || "UNKNOWN").toUpperCase().trim();
-
-const image =
-    document.getElementById("bacteriaImage");
-
-const message =
-    document.getElementById("statusMessage");
-
-if (
-    color === "RED" ||
-    color === "MAGENTA" ||
-    color === "PINK"
-) {
-
-    image.src = "cyanobacteria.png";
-
-    image.style.display = "block";
-
-    message.style.display = "block";
-
-    message.innerText =
-    "⚠️ CYANOBACTERIA DETECTED";
-
-message.style.background =
-    "#dc2626";
-
-message.style.color =
-    "white";
-
-message.style.border =
-    "3px solid #fecaca";
-
-message.style.boxShadow =
-    "0 0 20px rgba(220,38,38,.4)";
-    <div id="sampleType">
-    Water Sample Analysis
-</div>
-
-    document.getElementById("liveColor")
-.style.background =
-"linear-gradient(135deg,#dbeafe,#7dd3fc,#0891b2)";
-}
-else {
-
-    image.style.display = "none";
-
-    message.style.display = "block";
-
-    message.innerText =
-        "✅ NO BACTERIA DETECTED";
-
-    message.style.background =
-    "#059669";
-
-message.style.color =
-    "white";
-
-message.style.border =
-    "3px solid #a7f3d0";
-
-message.style.boxShadow =
-    "0 0 15px rgba(16,185,129,.3)";
-
-    document.getElementById("liveColor")
-.style.background =
-"linear-gradient(135deg,#dbeafe,#7dd3fc,#0891b2)";
-}
-
-document.getElementById("timestamp")
-    .innerText =
-    "Last Updated: " +
-    (data.timestamp || "--");
-
-            document.getElementById("colorName")
-                .innerText = color;
-
-            document.getElementById("timestamp")
-                .innerText = "Last Updated: "
-                + (data.timestamp || "--");
-
-            const circle = document.getElementById("colorCircle");
-                    
-                circle.style.backgroundColor =
-                    color.toLowerCase();
-                
-                circle.style.boxShadow =
-                    `0 0 80px ${color.toLowerCase()}`;
-
-            document.getElementById("liveColor")
-                    .style.background =
-                    `linear-gradient(
-                        135deg,
-                        ${color.toLowerCase()},
-                        #0f172a
-                    )`;
-
-        });
+    });
 
     </script>
 
 </head>
 
-    <body>
+<body>
 
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-<div class="bubble b4"></div>
-        
 <div class="header">
+
     <h1>🐢 ECO ENGINEERS</h1>
+
     <p>Water Quality Research Dashboard</p>
+
 </div>
 
 <div class="container">
 
     <div class="left-panel">
 
-        <img src="logo.jpeg" class="logo">
+        <img
+            src="logo.jpeg"
+            class="logo">
 
-        <img src="team-picture.jpeg" class="team-photo">
+        <img
+            src="team-picture.jpeg"
+            class="team-photo">
 
         <div class="project-card">
 
             <h2>Project Overview</h2>
 
-           <p>
-Our system uses a LEGO SPIKE Essential color sensor
-to identify colors associated with water quality
-testing and environmental monitoring.
-</p>
+            <p>
+            Our system uses a LEGO SPIKE Essential
+            color sensor to identify indicators of
+            harmful bacteria in water samples.
+            </p>
 
-<p>
-Sensor data is processed in real time,
-stored in Firebase,
-and displayed through this live dashboard.
-</p>
+            <br>
 
-<p>
-The project demonstrates how robotics,
-cloud computing, and environmental science
-can work together to protect aquatic ecosystems.
-</p>
+            <p>
+            Sensor data is processed in real time,
+            stored in Firebase and visualized
+            through this live dashboard.
+            </p>
 
         </div>
 
     </div>
 
-   <div class="right-panel" id="liveColor">
+    <div
+        class="right-panel"
+        id="liveColor">
 
-    <h2 style="
-        font-size:42px;
-        margin-bottom:20px;
-        color:#0f172a;
-        background:white;
-        padding:12px 25px;
-        border-radius:20px;
-    ">
-        Water Sample Analysis
-    </h2>
+        <img
+            id="bacteriaImage"
+            src="">
 
-    <img id="bacteriaImage"
-         src=""
-         style="
-            width:450px;
-            max-width:85%;
-            border-radius:25px;
-            border:8px solid white;
-            box-shadow:0 10px 30px rgba(0,0,0,.25);
-            display:none;
-         ">
+        <div id="statusMessage"></div>
 
-    <div id="statusMessage"></div>
-
-    <div id="timestamp">
-        --
-    </div>
-
-</div>
-
-<div id="statusMessage"
-     style="
-        margin-top:20px;
-        padding:20px;
-        border-radius:15px;
-        font-size:2rem;
-        font-weight:bold;
-        display:none;
-     ">
-</div>
+        <div id="sampleType">
+            Water Sample Analysis
+        </div>
 
         <div id="timestamp">
             --
         </div>
 
-       </div>
+    </div>
 
 </div>
 
