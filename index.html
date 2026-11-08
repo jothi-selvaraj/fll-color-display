@@ -345,14 +345,23 @@ if (
     message.style.display = "block";
 
     message.innerText =
-        "⚠️ CYANOBACTERIA DETECTED";
+    "⚠️ CYANOBACTERIA DETECTED";
 
-    message.style.background =
-        "#dc2626";
+message.style.background =
+    "#dc2626";
+
+message.style.color =
+    "white";
+
+message.style.border =
+    "3px solid #fecaca";
+
+message.style.boxShadow =
+    "0 0 20px rgba(220,38,38,.4)";
 
     document.getElementById("liveColor")
-        .style.background =
-        "linear-gradient(135deg,#ef4444,#7f1d1d)";
+    .style.background =
+    "linear-gradient(135deg,#dbeafe,#7dd3fc,#0891b2)";
 }
 else {
 
@@ -364,11 +373,20 @@ else {
         "✅ NO BACTERIA DETECTED";
 
     message.style.background =
-        "#059669";
+    "#059669";
+
+message.style.color =
+    "white";
+
+message.style.border =
+    "3px solid #a7f3d0";
+
+message.style.boxShadow =
+    "0 0 15px rgba(16,185,129,.3)";
 
     document.getElementById("liveColor")
-        .style.background =
-        "linear-gradient(135deg,#0ea5e9,#164e63)";
+    .style.background =
+    "linear-gradient(135deg,#dbeafe,#7dd3fc,#0891b2)";
 }
 
 document.getElementById("timestamp")
@@ -456,9 +474,11 @@ can work together to protect aquatic ecosystems.
         <img id="bacteriaImage"
      src="cyanobacteria.jpeg"
      style="
-        width:350px;
+        width:500px;
+        max-width:90%;
         border-radius:20px;
-        border:5px solid white;
+        border:6px solid white;
+        box-shadow:0 0 30px rgba(0,0,0,.3);
         display:none;
      ">
 
