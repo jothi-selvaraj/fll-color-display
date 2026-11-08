@@ -240,9 +240,17 @@ body {
                 .innerText = "Last Updated: "
                 + (data.timestamp || "--");
 
-            document.getElementById("liveColor")
-                .style.backgroundColor =
-                color.toLowerCase();
+            document.getElementById("colorCircle")
+    .style.backgroundColor =
+    color.toLowerCase();
+
+document.getElementById("liveColor")
+    .style.background =
+    `linear-gradient(
+        135deg,
+        ${color.toLowerCase()},
+        #0f172a
+    )`;
 
         });
 
