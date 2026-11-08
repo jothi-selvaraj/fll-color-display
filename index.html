@@ -244,6 +244,7 @@ pointer-events: none;
  const firebaseConfig = {
   apiKey: "AIzaSyDOo74IoJTMqIN3SrxCy84DQqAQQUFFv8U",
   authDomain: "fll-color-display.firebaseapp.com",
+  databaseURL: "https://fll-color-display-default-rtdb.firebaseio.com",
   projectId: "fll-color-display",
   storageBucket: "fll-color-display.firebasestorage.app",
   messagingSenderId: "403048053250",
@@ -271,9 +272,13 @@ pointer-events: none;
                 .innerText = "Last Updated: "
                 + (data.timestamp || "--");
 
-            document.getElementById("colorCircle")
-                    .style.backgroundColor =
+            const circle = document.getElementById("colorCircle");
+                    
+                circle.style.backgroundColor =
                     color.toLowerCase();
+                
+                circle.style.boxShadow =
+                    `0 0 80px ${color.toLowerCase()}`;
 
             document.getElementById("liveColor")
                     .style.background =
