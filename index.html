@@ -324,7 +324,7 @@ pointer-events: none;
 
             if(!data) return;
 
-            let color = (data.color || "UNKNOWN");
+            let color = (data.color || "UNKNOWN").toUpperCase().trim();
 
 const image =
     document.getElementById("bacteriaImage");
