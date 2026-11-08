@@ -239,50 +239,181 @@ body{
 
 <body>
 
-<div class="container">
+*{
+    margin:0;
+    padding:0;
+   *box-sizing:border-box;
+}
 
-    <div class="left-panel">
+body{
+  * font-family:Arial, sans-serif;
 
-        <img src="logo.jpeg"
-             class="logo">
+ *  background:
+    linear-gradient(*        135deg,
+        #0f172a,
+ *      #0f3b57,
+*       #0f172a
+    );
 
-        <div class="team-title">
-            BOOVI AZEEN<br>
-            ECO ENGINEERS
-        </div>
+    color:w*ite;
 
-        <img src="team-picture.jpeg"
-             class="team-photo">
+*   min-height:100vh;
+}
 
-        <div class="project">
+.header{
 
-            FIRST LEGO League Innovation Project<br><br>
+*   margin:20px;
 
-            LEGO SPIKE color sensor → OCR →
-            Firebase Realtime Database →
-            Live Website Dashboard
+    padding:20px;*
+*   border-radius:25px;
 
-        </div>
+    backgr*und:rgba(255,255*255,.08);
 
-    </div>
+    border:2px solid rg*a(255,255,255,.15);
 
-    <div class="right-panel" id="liveColor">
+    text-alig*:center;
 
-        <div id="colorName">
-            Waiting...
-        </div>
+    box-shadow:* 10px 30px rgba(0,0,0,.*);
+}
 
-        <div id="timestamp">
-            --
-        </div>
+.header h1{
 
-        <div class="status">
-            🟢 LIVE SENSOR
-        </div>
+    font*size:3rem;
 
-    </div>
+    letter-spacing:3*x;
+}
 
-</div>
+.header p{
+
+    margin-top*10px;
+
+    color:#d1d5*b;
+}
+
+.container{
+
+    display:fle*;
+
+    gap:20px;
+
+*   padding:20px;
+}
+
+.left-panel{
+
+*  *width:45%;
+
+    border-radius:*0px;
+
+    background:rgba(255,255,*55,.08*;
+
+    border:2px solid rgba(255,2*5,255,.15);
+
+    padding:20px;
+}
+
+*right-panel{
+
+    width:55%;
+
+    *order-radius:30*x;
+
+    padding:30px;
+
+    border:*px solid white;
+
+    display:flex;*
+    flex-direction:column;
+
+   *justify-content:center;
+
+    align*items:center;
+
+*   min-height:650px;
+
+    transiti*n:.5s;
+}
+
+.logo{
+
+    width:220px;*
+    display:block;
+
+    margin:au*o;
+}
+
+.team-photo{
+
+    width:100%*
+
+    margin-top:20px;
+
+    border*radius*20px;
+
+    border:4*x solid white;
+
+    box-shadow:0 1*px 25px*rgba(0,0,0,.3);
+}
+
+.project-card{
+*    margin-top:20px;
+
+    backgrou*d*rgba(0,0,0,.2);
+
+    padding:20*x;
+
+    border-radius:20px;
+
+    b*rder:1px solid*rgba(255,255,255,.15);
+}
+
+#colorCi*cle{
+
+    width:220px;
+
+    height*220px;
+
+    border-radius:50%;
+
+  * border:8px solid white;
+
+    back*round:white;
+
+    margin-bottom:30*x;
+
+   *box-shadow:0 0 60px rgba(255,255,*55,.5);
+}
+
+#colorName{
+
+    font-s*ze:8rem;
+
+    font-weight:900;
+
+  * letter-spacing:4px;
+
+*   text-shadow:0 0 20px rgba(255,2*5*255,.4);
+}
+
+#timestamp{
+
+    margi*-top:30px;
+
+    font-size:2rem;
+}
+**status{
+
+    margin-top:20px;
+
+   *padding:15px 25px;
+
+    border-rad*us:50px;
+
+    background:#10b981;
+*    color:white;
+
+    font-weight:*old;
+}
 
 </body>
 
