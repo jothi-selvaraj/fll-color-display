@@ -11,7 +11,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+.bubble {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+}
 
+.b1 {
+    width: 120px;
+    height: 120px;
+    top: 12%;
+    left: 5%;
+}
+
+.b2 {
+    width: 70px;
+    height: 70px;
+    top: 70%;
+    left: 20%;
+}
+
+.b3 {
+    width: 90px;
+    height: 90px;
+    top: 20%;
+    right: 10%;
+}
+
+.b4 {
+    width: 150px;
+    height: 150px;
+    bottom: 10%;
+    right: 20%;
+}
+       
 body {
     font-family: Arial, Helvetica, sans-serif;
 
@@ -61,15 +96,35 @@ body {
 
     width: 42%;
 
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.18);
 
-    border: 2px solid rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.25);
 
-    border-radius: 30px;
+    backdrop-filter: blur(16px);
 
     padding: 20px;
 
     backdrop-filter: blur(12px);
+}
+       .left-panel::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: url("fll_logo.jpeg");
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+    background-size: 70%;
+
+    opacity: 0.04;
+
+    pointer-events: none;
 }
 
 .right-panel {
@@ -93,6 +148,9 @@ body {
     transition: all 0.5s ease;
     position: relative;
     overflow: hidden;
+    box-shadow:
+    0 0 40px rgba(255,255,255,0.15),
+    inset 0 0 60px rgba(255,255,255,0.05);
 }
    .right-panel::before {
 
@@ -168,19 +226,19 @@ pointer-events: none;
     margin-bottom: 10px;
 }
 
-#colorCircle {
+       #colorCircle {
 
-    width: 220px;
-
-    height: 220px;
+    width: 240px;
+    height: 240px;
 
     border-radius: 50%;
 
-    border: 8px solid white;
+    border: 10px solid rgba(255,255,255,0.9);
 
     background: white;
 
-    box-shadow: 0 0 50px rgba(255,255,255,0.5);
+    box-shadow:
+        0 0 80px rgba(255,255,255,0.6);
 
     margin-bottom: 30px;
 }
@@ -299,9 +357,14 @@ pointer-events: none;
 
     <body>
 
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+<div class="bubble b3"></div>
+<div class="bubble b4"></div>
+        
 <div class="header">
     <h1>🐢 ECO ENGINEERS</h1>
-    <p>Live Color Sensor Dashboard</p>
+    <p>Water Quality Research Dashboard</p>
 </div>
 
 <div class="container">
@@ -316,21 +379,23 @@ pointer-events: none;
 
             <h2>Project Overview</h2>
 
-            <p>
-                LEGO SPIKE Essential Hub detects colors.
-            </p>
+           <p>
+Our system uses a LEGO SPIKE Essential color sensor
+to identify colors associated with water quality
+testing and environmental monitoring.
+</p>
 
-            <p>
-                OCR extracts the sensor output from the SPIKE console.
-            </p>
+<p>
+Sensor data is processed in real time,
+stored in Firebase,
+and displayed through this live dashboard.
+</p>
 
-            <p>
-                Firebase stores the results in real time.
-            </p>
-
-            <p>
-                This website updates instantly whenever a new color is detected.
-            </p>
+<p>
+The project demonstrates how robotics,
+cloud computing, and environmental science
+can work together to protect aquatic ecosystems.
+</p>
 
         </div>
 
